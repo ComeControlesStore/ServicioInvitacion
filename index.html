@@ -42,10 +42,24 @@ body{
 }
 
 /* INTRODUCCIÓN */
-#introVideoScreen,#finalVideoScreen{
-  position:fixed;inset:0;z-index:60000;background:#000;
-  display:flex;align-items:center;justify-content:center;overflow:hidden;
+#introVideoScreen
+#finalVideoScreen{
+  position:fixed;
+  inset:0;
+  z-index:65000;
+  background-color:#fff4f5;
+  background-image:
+    radial-gradient(#fff 3px,transparent 3.5px),
+    radial-gradient(#ffb6c5 2px,transparent 2.5px),
+    linear-gradient(145deg,#fff8f8,#ffe1e7);
+  background-size:32px 32px,47px 47px,100% 100%;
+  background-position:0 0,15px 18px,0 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
+
 #introVideoScreen{
   background:#fff4f5;
   background-image:
