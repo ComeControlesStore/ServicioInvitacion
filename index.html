@@ -1096,13 +1096,16 @@ section{position:relative}
     try {
       const { error } = await supabaseClient
         .from('confirmaciones')
-        .insert([{
-          nombre: name,
-          adultos: adults,
-          ninos: children,
-          telefono: phone || null,
-          asistencia: attending
-        }]);
+        
+.insert([{
+  nombre: name,
+  personas: adults + children,
+  adultos: adults,
+  ninos: children,
+  telefono: phone || null,
+  asistencia: attending
+}]);
+
 
       if (error) throw error;
 
