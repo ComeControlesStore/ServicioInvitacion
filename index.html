@@ -1107,33 +1107,38 @@ section{position:relative}
 }]);
 
 
-      if (error) throw error;
+  ```js
+if (error) throw error;
 
-      showMessage(
-        '¡Gracias! Tu respuesta quedó registrada. 🎀',
-        false
-      );
+showMessage(
+  '¡Gracias! Tu respuesta quedó registrada. 🎀',
+  false
+);
 
-      submit.textContent = 'Confirmado';
+submit.textContent = 'Confirmado';
 
-      setTimeout(() => {
-        modal.classList.add('hidden');
-        submit.disabled = false;
-        submit.textContent = 'Enviar confirmación';
-      }, 2200);
+setTimeout(async () => {
+  modal.classList.add('hidden');
 
-   
-} catch (err) {
-  console.error('Error al guardar confirmación:', err);
+  // Detener la música de fondo
+  music.pause();
+  clearInterval(musicFadeTimer);
 
-  showMessage(
-    `Error: ${err.message || JSON.stringify(err)}`,
-    true
-  );
+  // Mostrar y reproducir el video final
+  finalScreen.classList.remove('hidden');
+  finalVideo.currentTime = 0;
+
+  try {
+    await finalVideo.play();
+  } catch (err) {
+    console.error('No se pudo reproducir el video final:', err);
+    finalScreen.classList.add('hidden');
+  }
 
   submit.disabled = false;
-  submit.textContent = 'Intentar de nuevo';
-}
+  submit.textContent = 'Enviar confirmación';
+}, 1800);
+```
 
   });
 
