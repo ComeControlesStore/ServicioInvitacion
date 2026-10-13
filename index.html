@@ -1119,18 +1119,19 @@ section{position:relative}
         submit.textContent = 'Enviar confirmación';
       }, 2200);
 
-    } catch (err) {
-      console.error(
-        'Error al guardar confirmación:', err
-      );
+   
+} catch (err) {
+  console.error('Error al guardar confirmación:', err);
 
-      showMessage(
-        'No se pudo guardar la confirmación. Verifica la conexión y la configuración de la tabla en Supabase.'
-      );
+  showMessage(
+    `Error: ${err.message || JSON.stringify(err)}`,
+    true
+  );
 
-      submit.disabled = false;
-      submit.textContent = 'Intentar de nuevo';
-    }
+  submit.disabled = false;
+  submit.textContent = 'Intentar de nuevo';
+}
+
   });
 
   /* VIDEO FINAL */
